@@ -1,0 +1,16 @@
+<!doctype html><link rel="stylesheet" type="text/css" href="/static/style.css">
+<div class="center-on-page"> 
+    {% set tRank = data[1]['rank'] | string() %}
+    {% set tier = data[1]['tier'] | string() %}
+    {% set emblem = "static/img/" + tRank + '_' + tier+ ".png" %}
+    {% set star = "static/img/" + 'star' + ".webp" %}
+
+    <h3>{{tRank}} {{tier}}</h3>
+    <h1>
+        <img src="{{ emblem }}" class="svg" fill="white" height="100" vertical-align="middle" width="100">
+    </h1> 
+    <small>{{data[1]['stars']}}</small>
+    <h1>{{ data[1]['name'] }}</h1>
+    <h3>Rank #{{data[1]['topRank']}}</h3> 
+    <h2>{{data[0]['accountId']}}</h2>
+    <h2>{{data[0]['ronin']}}</h2>
