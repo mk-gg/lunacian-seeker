@@ -29,11 +29,13 @@ def result():
         jsonData = dataResp["_items"]
         
     result = list(filter(lambda jsonData: jsonData['id'] == jsonResp["accountId"], jsonData))
+    if not result:
+        return render_template('error.html',data=data,error=error)
+    else:
+        data = data + result
     
-    data = data + result
-    
-    return render_template(
-        'result.html', data=data)
+        return render_template(
+            'result.html', data=data)
     
 if __name__== '__main__':
     app.run(debug=True)
