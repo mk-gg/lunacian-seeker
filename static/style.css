@@ -85,11 +85,18 @@ body {
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
   }
-  small {
+  #stars {
     color:#ffffff77;
     background: url('https://axies.io/_next/image?url=%2Fimages%2Fstar.png&w=32&q=75') 0 0px / 14px 14px no-repeat;
     width: 100px;
     padding-left: 20px;
+    padding-right: 5px;
+}
+#axs {
+  color:#ffffff77;
+  background: url('https://media.discordapp.net/attachments/997881299832414389/1032889184404385842/unknown.png') 0 0px / 14px 14px no-repeat;
+  width: 100px;
+  padding-left: 20px;
 }
 h2 {
   text-align: center;

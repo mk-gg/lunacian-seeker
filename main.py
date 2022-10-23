@@ -2,8 +2,13 @@
 import json
 from flask import Flask, render_template, request
 import requests
+from bisect import bisect
 
 app = Flask(__name__)
+
+def grade(score, breakpoints=[2,3, 4, 5, 6, 11, 21, 51, 101, 201, 501, 1001, 20001], grades=[600,400,384, 307.20, 245.76, 196.608, 157.286, 110.100, 77.070, 53.949, 21.580, 8.632, 1.726, 0]):
+    i = bisect(breakpoints, score)
+    return grades[i]
 
 @app.route("/")
 def home_view():
@@ -32,8 +37,9 @@ def result():
     if not result:
         return render_template('error.html',data=data,error=error)
     else:
+        result.append(grade(result[0]['topRank']))
         data = data + result
-    
+
         return render_template(
             'result.html', data=data)
     
